@@ -32,23 +32,23 @@ int main() {
     auto start = std::chrono::high_resolution_clock::now();
     pre_allocated_vector_insert(num_insertions);
     auto end = std::chrono::high_resolution_clock::now();
-    std::cout << "Pre-allocated vector insertions took: "
-              << std::chrono::duration<double, std::milli>(end - start).count()
-              << " ms\n";
+    double pre_allocated_vector_time = std::chrono::duration<double, std::milli>(end - start).count();
 
     start = std::chrono::high_resolution_clock::now();
     vector_insert(num_insertions);
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Vector insertions took: "
-              << std::chrono::duration<double, std::milli>(end - start).count()
-              << " ms\n";
+    double vector_insert_time = std::chrono::duration<double, std::milli>(end - start).count();
 
     start = std::chrono::high_resolution_clock::now();
     list_insert(num_insertions);
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "List insertions took: "
-              << std::chrono::duration<double, std::milli>(end - start).count()
-              << " ms\n";
+    double list_insert_time = std::chrono::duration<double, std::milli>(end - start).count();
+
+    std::cout << "Operation                Execution Time (ms)\n";
+    std::cout << "--------------------------------------------\n";
+    std::cout << "Pre-allocated Vector      " << pre_allocated_vector_time << "\n";
+    std::cout << "Vector Insert             " << vector_insert_time << "\n";
+    std::cout << "List Insert               " << list_insert_time << "\n";
 
     return 0;
 }
