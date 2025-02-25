@@ -32,28 +32,21 @@ List insertions took: 73.148 ms
 
 ## How to Compile and Run the Code
 
-1. **Install a C++ Compiler:**
-   - If you're using Linux or macOS, you can install `g++` by running:
-     ```bash
-     sudo apt install g++
-     ```
-   - On Windows, you can use MinGW or Microsoft Visual Studio.
-
-2. **Clone the repository:**
+1. **Clone the repository:**
    If you haven't cloned the repository yet, do so by running:
    ```bash
    git clone https://github.com/LyudmilaKostanyan/vector-vs-list-insert.git
    cd False-Sharing
    ```
 
-3. **Build the project:**
+2. **Build the project:**
    Once you're in the project directory, compile the code with:
    ```bash
    cmake -S . -B build
    cmake --build build --config Release
    ```
 
-4. **Run the compiled executable:**
+3. **Run the compiled executable:**
    After compiling, you can run the program:
    ```bash
    cd build
