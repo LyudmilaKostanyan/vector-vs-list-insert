@@ -42,7 +42,6 @@ jobs:
             rm -rf build
           fi
           mkdir build
-        working-directory: ${{ github.workspace }}
 
       - name: Configure CMake project (Linux & macOS)
         if: runner.os != 'Windows'
