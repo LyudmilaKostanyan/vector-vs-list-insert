@@ -25,9 +25,11 @@ The program will perform the following:
 Example output:
 
 ```
-Pre-allocated vector insertions took: 1.7187 ms
-Vector insertions took: 2.1003 ms
-List insertions took: 73.148 ms
+Operation                Execution Time (ms)
+--------------------------------------------
+Pre-allocated Vector      4.0728
+Vector Insert             3.7693
+List Insert               129.871
 ```
 
 ## How to Compile and Run the Code
