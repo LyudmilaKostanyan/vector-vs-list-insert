@@ -36,7 +36,17 @@ jobs:
           msystem: mingw64
           install: mingw-w64-x86_64-cmake mingw-w64-x86_64-gcc
 
+      - name: Create build directory (Linux & macOS)
+        if: runner.os != 'Windows'
+        run: |
+          if [ ! -d "build" ]; then
+            mkdir build
+          else
+            echo "Build directory already exists."
+          fi
+
       - name: Create build directory (Windows)
+        if: runner.os == 'Windows'
         shell: bash
         run: |
           if [ ! -d "build" ]; then
@@ -55,7 +65,6 @@ jobs:
         if: runner.os == 'Windows'
         shell: msys2 {0}
         run: |
-          mkdir build
           cd build
           cmake ..
 
