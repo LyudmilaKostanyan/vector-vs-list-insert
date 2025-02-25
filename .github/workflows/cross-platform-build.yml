@@ -37,7 +37,11 @@ jobs:
           install: mingw-w64-x86_64-cmake mingw-w64-x86_64-gcc
 
       - name: Create build directory
-        run: mkdir build
+        run: |
+          if [ -d "build" ]; then
+            rm -rf build
+          fi
+          mkdir build
         working-directory: ${{ github.workspace }}
 
       - name: Configure CMake project (Linux & macOS)
