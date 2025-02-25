@@ -1,28 +1,24 @@
-# Vector vs list insert
+# Vector vs List Insert Performance Comparison
 
-## Description
+## Project Overview
+This project compares the performance of two standard data structures in C++: std::vector<int> and std::list<int>, focusing on the time taken to perform 10,000 insertions in the middle of each container. The purpose is to understand the performance differences when repeatedly inserting new elements at the middle of both containers and to explore why std::vector may outperform std::list, despite the need for element shifts.
 
-This project compares the performance of two standard data structures: **std::vector<int>** and **std::list<int>**, focusing on the time taken to perform **10,000 insertions in the middle** of each. The program demonstrates the performance differences when repeatedly inserting new elements in the middle of both containers and explores why **std::vector** may outperform **std::list**, despite requiring element shifts. The project also includes an experiment with a **pre-allocated vector** to assess if it improves performance.
+Additionally, an experiment with a pre-allocated vector is included to assess if pre-allocating memory can improve performance by reducing the number of reallocations required during the insertions.
 
 ### Expected Outcome
+- std::vector may outperform std::list in this test, as although vector insertions require shifting elements, the overhead of pointer manipulation in a list (especially when there are many nodes) might be more expensive.
+- Pre-allocating a vector could improve performance by reducing reallocations, which are costly in the non-pre-allocated vector.
 
-- **std::vector** might outperform **std::list** in this test because although vector insertion requires shifting elements, the overhead of pointer manipulation in a list (especially when there are many nodes) could be more expensive.
-- A **pre-allocated vector** could improve insertion performance by reducing the number of reallocations required as the vector grows.
+## Features
+!. Sequential Execution:
+The program measures and compares the time taken to perform 10,000 insertions in the middle of both std::vector<int> and std::list<int>.
+2. Pre-allocated Vector:
+A pre-allocated vector is used with an initial capacity large enough to avoid reallocations during the insertions.
+3. Performance Comparison:
+Execution time for each insertion approach is measured and displayed.
 
-## Example Code Workflow
-
-The program will perform the following:
-
-1. **Sequential Execution**:
-   - Measure and compare the time taken to perform **10,000 insertions in the middle** of both `std::vector<int>` and `std::list<int>`.
-   
-2. **Pre-allocated Vector**:
-   - Perform insertions using a pre-allocated vector with an initial capacity large enough to avoid reallocations.
-   
-3. **Performance Comparison**:
-   - Output the execution time for each insertion approach.
-
-Example output:
+## Example Output
+After running the program, you will see an output similar to this:
 
 ```
 Operation                Execution Time (ms)
@@ -31,6 +27,11 @@ Pre-allocated Vector      4.0728
 Vector Insert             3.7693
 List Insert               129.871
 ```
+
+## Performance Considerations
+### Why Vector Might Be Faster Than List
+- Vector: Even though insertion requires shifting elements, std::vector benefits from contiguous memory storage and better cache locality, making it faster overall for operations like random access and iteration.
+- List: std::list avoids shifting elements, but the overhead of pointer manipulation (especially with a large number of nodes) can lead to slower performance in terms of both time and memory access patterns.
 
 ## How to Compile and Run the Code
 
