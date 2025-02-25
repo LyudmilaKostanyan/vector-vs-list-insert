@@ -6,12 +6,12 @@ This project compares the performance of two standard data structures in C++: ``
 Additionally, an experiment with a pre-allocated vector is included to assess if pre-allocating memory can improve performance by reducing the number of reallocations required during the insertions.
 
 ### Expected Outcome
-- std::vector may outperform std::list in this test, as although vector insertions require shifting elements, the overhead of pointer manipulation in a list (especially when there are many nodes) might be more expensive.
+- ```std::vector``` may outperform ```std::list``` in this test, as although vector insertions require shifting elements, the overhead of pointer manipulation in a list (especially when there are many nodes) might be more expensive.
 - Pre-allocating a vector could improve performance by reducing reallocations, which are costly in the non-pre-allocated vector.
 
 ## Features
 1. Sequential Execution:
-The program measures and compares the time taken to perform 10,000 insertions in the middle of both std::vector<int> and std::list<int>.
+The program measures and compares the time taken to perform 10,000 insertions in the middle of both ```std::vector<int>``` and ```std::list<int>```.
 2. Pre-allocated Vector:
 A pre-allocated vector is used with an initial capacity large enough to avoid reallocations during the insertions.
 3. Performance Comparison:
@@ -31,7 +31,7 @@ List Insert               129.871
 ## Performance Considerations
 ### Why Vector Might Be Faster Than List
 - Vector: Even though insertion requires shifting elements, std::vector benefits from contiguous memory storage and better cache locality, making it faster overall for operations like random access and iteration.
-- List: std::list avoids shifting elements, but the overhead of pointer manipulation (especially with a large number of nodes) can lead to slower performance in terms of both time and memory access patterns.
+- List: ```std::list``` avoids shifting elements, but the overhead of pointer manipulation (especially with a large number of nodes) can lead to slower performance in terms of both time and memory access patterns.
 
 ## How to Compile and Run the Code
 
