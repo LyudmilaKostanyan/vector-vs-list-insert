@@ -46,7 +46,7 @@ List Insert               129.871
    Once you're in the project directory, compile the code with:
    ```bash
    cmake -S . -B build
-   cmake --build build --config Release
+   cmake --build build
    ```
 
 3. **Run the compiled executable:**
